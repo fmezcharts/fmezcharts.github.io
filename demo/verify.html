@@ -1,0 +1,152 @@
+<html>
+
+  <head>
+
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+ 	
+
+  <script>
+
+    window.onerror = function(error, url, line) {
+     document.open();
+     document.write ( "<h1>A Recent Change You Made Has Caused An Error. Please Confirm You Have Properly Entered Values. For More Information Please Review Documentation.</h1>" );
+     document.close();
+      var elem = document.getElementById('canvas');
+     elem.parentNode.removeChild(elem);
+     return false;
+  } 
+  </script>
+
+  </head>
+
+  <body>
+ 	<div>
+   	<canvas id="canvas" width="925" height="440"></canvas>
+ 	</div>
+ 	<script>
+
+
+var myChart = new Chart(document.getElementById("canvas").getContext('2d'), {
+     type: 'line', 
+
+  
+data: {
+
+ labels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"], 
+
+ datasets: [ {
+ 			label: "Data Set 1",
+ 			borderColor: "#0288D1",
+ 			borderWidth: 3,
+ 			backgroundColor: "#0288D1",
+ 			hoverBorderColor: "#00897B",
+ 			hoverBackgroundColor: "#a05d56",
+ 			hoverWidth: 0,
+ 			hoverWidth: 0,
+ 			borderDash: [6,2],
+ 			pointBackgroundColor: "#4DB6AC",
+ 			pointBorderColor: "#4DB6AC",
+ 			pointRadius: 3,
+ 			pointWidth: 3,
+ 			fill: false,
+ 			data: [12,24,5,36,15],
+ 
+ },{
+ 			label: "Data Set 2",
+ 			borderColor: "#EC407A",
+ 			borderWidth: 3,
+ 			backgroundColor: "#EC407A",
+ 			hoverBorderColor: "#42A5F5",
+ 			hoverBackgroundColor: "#a05d56",
+ 			hoverWidth: 0,
+ 			hoverWidth: 0,
+ 			borderDash: [0,0],
+ 			pointBackgroundColor: "#C62828",
+ 			pointBorderColor: "#C62828",
+ 			pointRadius: 3,
+ 			pointWidth: 3,
+ 			fill: false,
+ 			data: [5,36,15,12,24],
+ 
+ }]   
+
+  },
+options: { 
+legend: {
+ 		   display: true, 
+ 		   position: 'top',
+ labels: { boxWidth: 25,
+ 			  fontSize: 12,
+ 			  fontFamily: 'Arial',
+
+             } }, 
+
+tooltips: {
+  			enabled: true,
+ 			mode: 'index', 
+ 			
+}, 
+
+title: {
+ display: true, 
+text: 'Multiple DataSet Line Chart' 
+
+},
+scales: { 
+ 		xAxes: [{
+
+ 		gridLines: { 
+ 		display: true,
+ 		drawBorder: true,
+ 		drawOnChartArea: true,
+ 		drawTicks: true,
+ 		color: "#78909C"
+
+}, 
+  		autoSkip: false, 
+         ticks: { 
+             		beginAtZero: true, 
+display: true, 
+fontSize: 12, 
+minRotation: 0, 
+maxRotation: 90, 
+  }, 
+stacked: false, 
+padding: 3, 
+ 
+           }],
+yAxes: [{
+
+ 		gridLines: { 
+ 		display: true,
+ 		drawBorder: true,
+ 		drawOnChartArea: true,
+ 		drawTicks: true,
+ 		color: "#676767"
+
+}, 
+  			autoSkip: false,
+              ticks: {
+ 				userCallback: function(value, index, values) {
+         			value = value.toString();
+        			value = value.split(/(?=(?:...)*$)/);
+        			value = value.join(',');
+         			return value;
+     				},
+                 beginAtZero: true, 
+ 				display: true, 
+fontSize: 12, 
+minRotation: 0, 
+maxRotation: 45, 
+  }, 
+stacked: false, 
+padding: 3, 
+}],     
+ }}
+
+   }); 
+
+</script>
+</body>
+</html>
